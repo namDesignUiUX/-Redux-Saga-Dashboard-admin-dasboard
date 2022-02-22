@@ -1,6 +1,5 @@
 import { lazy, Suspense } from "react";
 import { Navigate, RouteObject } from "react-router-dom";
-import { useAppSelector } from "../../setup/redux/hooks";
 import LoginAndRegistered from "../../_start/layout/LoginAndRegistered";
 import SidebarLayout from "../../_start/layout/SidebarLayout";
 import SuspenseLoader from "../../_start/layout/SuspenseLoader/SuspenseLoader";
@@ -13,6 +12,7 @@ const Loader = (Component: any) => (props: any) =>
 
 const Status404 = Loader(lazy(() => import("../../_start/layout/Status404")));
 const Status500 = Loader(lazy(() => import("../../_start/layout/Status500")));
+const Products = Loader(lazy(() => import("../../_start/layout/products")));
 
 export const notAuth: RouteObject = {
   path: "/",
@@ -41,7 +41,8 @@ export const notAuth: RouteObject = {
 export const auth: RouteObject = {
   path: "/",
   children: [
-    { path: "/overview", element: <Navigate to="/" replace /> },
+    { path: "/login", element: <Navigate to="/dashboards/chart" replace /> },
+    { path: "", element: <Navigate to="/dashboards/chart" replace /> },
     {
       path: "status",
       children: [
@@ -68,11 +69,11 @@ export const dashboardsRoutes: RouteObject = {
   children: [
     {
       path: "",
-      element: <Navigate to="/dashboards/chart" replace />,
+      element: <Navigate to="/dashboards/product" replace />,
     },
     {
-      path: "chart",
-      element: "<Crypto />",
+      path: "product",
+      element: <Products />,
     },
     {
       path: "messenger",

@@ -12,10 +12,10 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
+import * as auth from "../../../app/modules/auth";
 import { UserModel } from "../../../app/modules/auth";
 import { login } from "../../../app/modules/auth/AuthCURD";
-import { useAppDispatch, useAppSelector } from "../../../setup/redux/hooks";
-import * as auth from "../../../app/modules/auth";
+import { useAppDispatch } from "../../../setup/redux/hooks";
 
 const theme = createTheme();
 function Login() {

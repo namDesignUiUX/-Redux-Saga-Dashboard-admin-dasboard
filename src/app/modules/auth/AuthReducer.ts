@@ -1,7 +1,7 @@
 import { Action, PayloadAction } from "@reduxjs/toolkit";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import { fork, put, take, cancel, takeLatest } from "redux-saga/effects";
+import { cancel, fork, put, take, takeLatest, } from "redux-saga/effects";
 import { accountDeffault } from "../../../setup/axios/account";
 import { UserModel } from "./AuthModel";
 export interface ActionWithPayload<T> extends Action {
@@ -49,6 +49,8 @@ export const reducer = persistReducer(
                     user: undefined,
                 }
             }
+
+
             default:
                 return state;
         }
@@ -62,6 +64,9 @@ export const actions = {
         payload: { user },
     }),
     loginFailure: () => ({ type: actionTypes.LoginFailed }),
+    logout: () => ({ type: actionTypes.LoginFailed })
+
+
 };
 export function* saga() {
     yield takeLatest(actionTypes.Login, function* () {

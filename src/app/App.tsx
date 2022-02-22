@@ -8,9 +8,11 @@ import ThemeProviderWrapper from "../_start/layout/theme/ThemeProvider";
 import { dashboardsRoutes, auth, notAuth } from "./routes";
 
 const App = () => {
-  const selected = useAppSelector((state) => state.auth.user);
+  const selected = useAppSelector(({ auth }) => auth.user);
   const account = React.useState(selected);
-  const content = useRoutes(account || undefined ? [auth, dashboardsRoutes] : [notAuth]);
+  const content = useRoutes(
+    account || undefined ? [dashboardsRoutes, auth] : [notAuth]
+  );
   return (
     <ThemeProviderWrapper>
       <LocalizationProvider dateAdapter={AdapterDateFns}>
