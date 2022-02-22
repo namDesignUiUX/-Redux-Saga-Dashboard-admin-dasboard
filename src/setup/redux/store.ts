@@ -1,12 +1,12 @@
 import { Action, configureStore, getDefaultMiddleware, ThunkAction } from '@reduxjs/toolkit';
-import createSagaMiddleware from 'redux-saga';
 import { persistStore } from 'redux-persist';
+import createSagaMiddleware from 'redux-saga';
 import rootReducer, { rootSaga } from './rootReducer';
 
 // Config middleware thunk && middleware saga
 const sagaMiddleware = createSagaMiddleware();
 const middleware = [
-  ... getDefaultMiddleware({
+  ...getDefaultMiddleware({
     immutableCheck: false,
     serializableCheck: false,
     thunk: true

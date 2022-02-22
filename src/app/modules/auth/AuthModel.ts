@@ -6,3 +6,8 @@ export interface UserModel {
     password: string;
     role: string;
 }
+
+
+export interface AuthModel {
+    accessToken: string;
+}
