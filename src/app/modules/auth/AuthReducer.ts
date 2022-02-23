@@ -1,19 +1,22 @@
 import { Action, PayloadAction } from "@reduxjs/toolkit";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import { cancel, fork, put, take, takeLatest, } from "redux-saga/effects";
+import { cancel, fork, put, take } from "redux-saga/effects";
 import { accountDeffault } from "../../../setup/axios/account";
+import { actionTypesProduct } from "../products/ProductReducer";
 import { UserModel } from "./AuthModel";
 export interface ActionWithPayload<T> extends Action {
     payload?: T;
 }
-export const actionTypes = {
-    Login: "[Login3] Action",
+const actionTypesAuth = {
+    Login: "[Login] Action",
     Logout: "[Logout] Action",
     Register: "[Register] Action",
     LoginSuccess: "[LoginSuccess User] Action",
     LoginFailed: "[LoginFailed] Action",
-};
+}
+// ActionTypes 
+export const actionTypes = { ...actionTypesAuth, ...actionTypesProduct };
 const initialAuthState: IAuthState = {
     user: undefined,
 };
@@ -35,10 +38,11 @@ export const reducer = persistReducer(
                 }
             }
             case actionTypes.LoginSuccess: {
-                const user: UserModel = action.payload as UserModel;
+                const user: UserModel = action.payload?.user as UserModel;
+                console.log("action.payload",  action.payload)
                 return {
                     ...state,
-                    user: user,
+                    user: {...user},
                     loading: false,
                 }
             }
@@ -49,8 +53,6 @@ export const reducer = persistReducer(
                     user: undefined,
                 }
             }
-
-
             default:
                 return state;
         }
@@ -69,13 +71,13 @@ export const actions = {
 
 };
 export function* saga() {
-    yield takeLatest(actionTypes.Login, function* () {
-        yield fork(watchingLoginFlow);
-    })
+    yield watchingLoginFlow()
 }
 function* watchingLoginFlow() {
-    const action: PayloadAction<LoginPayload> = yield take(actionTypes.Login);
-    yield fork(handleLogin, action.payload)
+    while (true) {
+        const action: PayloadAction<LoginPayload> = yield take(actionTypes.Login);
+        yield fork(handleLogin, action.payload)
+    }
 }
 function* handleLogin(payload: LoginPayload) {
     const { user } = payload;

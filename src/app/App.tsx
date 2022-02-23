@@ -11,7 +11,7 @@ const App = () => {
   const selected = useAppSelector(({ auth }) => auth.user);
   const account = React.useState(selected);
   const content = useRoutes(
-    account || undefined ? [dashboardsRoutes, auth] : [notAuth]
+    account[0] || undefined ? [dashboardsRoutes, auth] : [notAuth]
   );
   return (
     <ThemeProviderWrapper>
