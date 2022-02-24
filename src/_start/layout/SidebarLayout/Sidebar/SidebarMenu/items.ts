@@ -34,49 +34,9 @@ const menuItems: MenuItems[] = [
     heading: '',
     items: [
       {
-        name: 'Overview',
-        link: '/overview',
+        name: 'Chart',
+        link: '/Chart',
         icon: DesignServicesTwoToneIcon
-      }
-    ]
-  },
-  {
-    heading: 'Dashboards',
-    items: [
-      {
-        name: 'Crypto',
-        link: '/dashboards/crypto',
-        icon: BrightnessLowTwoToneIcon
-      },
-      {
-        name: 'Messenger',
-        icon: MmsTwoToneIcon,
-        link: '/dashboards/messenger'
-      },
-    ]
-  },
-  {
-    heading: 'Management',
-    items: [
-      {
-        name: 'Transactions',
-        icon: TableChartTwoToneIcon,
-        link: '/management/transactions'
-      },
-      {
-        name: 'User Profile',
-        icon: AccountCircleTwoToneIcon,
-        link: '/management/profile',
-        items: [
-          {
-            name: 'Profile Details',
-            link: '/management/profile/details'
-          },
-          {
-            name: 'User Settings',
-            link: '/management/profile/settings'
-          }
-        ]
       }
     ]
   },
@@ -86,48 +46,48 @@ const menuItems: MenuItems[] = [
       {
         name: 'Products',
         icon: BallotTwoToneIcon,
-        link: '/components/buttons'
+        link: '/dashboards/products'
       },
-      {
-        name: 'Attributes',
-        icon: BeachAccessTwoToneIcon,
-        link: '/components/modals'
-      },
-      {
-        name: 'Groups',
-        icon: EmojiEventsTwoToneIcon,
-        link: '/components/accordions'
-      },
+      // {
+      //   name: 'Attributes',
+      //   icon: BeachAccessTwoToneIcon,
+      //   link: '/dashboards/modals'
+      // },
+      // {
+      //   name: 'Groups',
+      //   icon: EmojiEventsTwoToneIcon,
+      //   link: '/dashboards/accordions'
+      // },
       {
         name: 'Categories',
         icon: FilterVintageTwoToneIcon,
-        link: '/components/tabs'
+        link: '/dashboards/categories'
       },
-      {
-        name: 'Tags',
-        icon: HowToVoteTwoToneIcon,
-        link: '/components/badges'
-      },
-      {
-        name: 'Orders',
-        icon: LocalPharmacyTwoToneIcon,
-        link: '/components/tooltips'
-      },
-      {
-        name: 'Order Status',
-        icon: RedeemTwoToneIcon,
-        link: '/components/avatars'
-      },
+      // {
+      //   name: 'Tags',
+      //   icon: HowToVoteTwoToneIcon,
+      //   link: '/dashboards/badges'
+      // },
+      // {
+      //   name: 'Orders',
+      //   icon: LocalPharmacyTwoToneIcon,
+      //   link: '/dashboards/tooltips'
+      // },
+      // {
+      //   name: 'Order Status',
+      //   icon: RedeemTwoToneIcon,
+      //   link: '/dashboards/avatars'
+      // },
       {
         name: 'Users',
         icon: SettingsTwoToneIcon,
-        link: '/components/cards'
+        link: '/dashboards/users'
       },
-      {
-        name: 'Coupons',
-        icon: TrafficTwoToneIcon,
-        link: '/components/forms'
-      },
+      // {
+      //   name: 'Coupons',
+      //   icon: TrafficTwoToneIcon,
+      //   link: '/dashboards/forms'
+      // },
     ]
   },
   {

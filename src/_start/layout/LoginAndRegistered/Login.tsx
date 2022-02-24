@@ -12,6 +12,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
+import { useNavigate } from "react-router-dom";
 import * as auth from "../../../app/modules/auth";
 import { UserModel } from "../../../app/modules/auth";
 import { login } from "../../../app/modules/auth/AuthCURD";
@@ -20,19 +21,25 @@ import { useAppDispatch } from "../../../setup/redux/hooks";
 const theme = createTheme();
 function Login() {
   const dispatch = useAppDispatch();
+  const nextPage = useNavigate();
+  const [isdisabledButton, setIsDisabledButton] = React.useState(false);
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+
     setTimeout(() => {
-      console.log(data);
       const email = data.get("email") as string;
       const password = data.get("password") as string;
+      setIsDisabledButton(true);
       login(email, password)
         .then((res) => {
           const user: UserModel = res;
           dispatch(auth.actions.login(user));
+          setIsDisabledButton(false);
+          nextPage("/dashboards/chart");
         })
         .catch((err) => {
+          setIsDisabledButton(false);
           console.log(err);
         });
     }, 1000);
@@ -89,6 +96,7 @@ function Login() {
                 name="email"
                 autoComplete="email"
                 autoFocus
+                defaultValue="Linnea77@hotmail.com"
               />
               <TextField
                 margin="normal"
@@ -99,6 +107,7 @@ function Login() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                defaultValue="pUbDTi7m3zrv2ga"
               />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
@@ -109,6 +118,7 @@ function Login() {
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
+                disabled={isdisabledButton}
               >
                 Sign In
               </Button>

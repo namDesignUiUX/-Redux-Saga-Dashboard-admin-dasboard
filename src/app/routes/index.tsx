@@ -12,11 +12,15 @@ const Loader = (Component: any) => (props: any) =>
 
 const Status404 = Loader(lazy(() => import("../../_start/layout/Status404")));
 const Status500 = Loader(lazy(() => import("../../_start/layout/Status500")));
-const Products = Loader(lazy(() => import("../../_start/layout/products")));
+const PageProducts = Loader(
+  lazy(() => import("../../app/pages/components/products"))
+);
+const Chart = Loader(lazy(() => import("../../_start/layout/Chart")));
 
 export const notAuth: RouteObject = {
   path: "/",
   children: [
+    { path: "/", element: <LoginAndRegistered /> },
     { path: "login", element: <LoginAndRegistered /> },
     {
       path: "status",
@@ -69,11 +73,15 @@ export const dashboardsRoutes: RouteObject = {
   children: [
     {
       path: "",
-      element: <Navigate to="/dashboards/product" replace />,
+      element: <Navigate to="/dashboards/chart" replace />,
     },
     {
-      path: "product",
-      element: <Products />,
+      path: "chart",
+      element: <Chart />,
+    },
+    {
+      path: "products",
+      element: <PageProducts />,
     },
     {
       path: "messenger",

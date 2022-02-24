@@ -23,6 +23,7 @@
     "material-ui-icons": "^1.0.0-beta.36",
     "mui": "^0.0.1",
     "nprogress": "^0.2.0",
+    "numeral": "^2.0.6",
     "prop-types": "^15.8.1",
     "ra-data-json-server": "^3.19.10",
     "react": "^17.0.2",

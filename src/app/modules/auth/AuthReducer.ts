@@ -39,10 +39,9 @@ export const reducer = persistReducer(
             }
             case actionTypes.LoginSuccess: {
                 const user: UserModel = action.payload?.user as UserModel;
-                console.log("action.payload",  action.payload)
                 return {
                     ...state,
-                    user: {...user},
+                    user: { ...user },
                     loading: false,
                 }
             }
