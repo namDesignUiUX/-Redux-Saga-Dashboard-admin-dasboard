@@ -35,7 +35,7 @@ const menuItems: MenuItems[] = [
     items: [
       {
         name: 'Chart',
-        link: '/Chart',
+        link: '/dashboards/chart',
         icon: DesignServicesTwoToneIcon
       }
     ]

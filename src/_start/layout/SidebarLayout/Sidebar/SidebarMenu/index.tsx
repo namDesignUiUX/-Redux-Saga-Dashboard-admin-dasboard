@@ -203,9 +203,9 @@ function SidebarMenu() {
 
   return (
     <>
-      {menuItems.map((section) => (
+      {menuItems.map((section, index) => (
         <MenuWrapper
-          key={section.heading}
+          key={index}
           subheader={
             <ListSubheader component="div" disableSticky>
               {section.heading}

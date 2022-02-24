@@ -18,9 +18,9 @@ const PageProducts = Loader(
 const Chart = Loader(lazy(() => import("../../_start/layout/Chart")));
 
 export const notAuth: RouteObject = {
-  path: "/",
+  path: "*",
   children: [
-    { path: "/", element: <LoginAndRegistered /> },
+    { path: "*", element: <LoginAndRegistered /> },
     { path: "login", element: <LoginAndRegistered /> },
     {
       path: "status",
@@ -55,7 +55,7 @@ export const auth: RouteObject = {
         },
         {
           path: "404",
-          element: "<Status404 />",
+          element: <Status404 />,
         },
         {
           path: "500",
@@ -71,10 +71,10 @@ export const dashboardsRoutes: RouteObject = {
   path: "dashboards",
   element: <SidebarLayout />,
   children: [
-    {
-      path: "",
-      element: <Navigate to="/dashboards/chart" replace />,
-    },
+    // {
+    //   path: "",
+    //   element: <Navigate to="/dashboards/chart" replace />,
+    // },
     {
       path: "chart",
       element: <Chart />,

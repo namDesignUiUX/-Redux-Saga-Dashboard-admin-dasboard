@@ -58,10 +58,10 @@ function Status500() {
         >
           <Grid
             xs={12}
-            md={6}
+            md={12}
             alignItems="center"
             display="flex"
-            justifyContent="center"
+            justifyContent="space-between"
             item
           >
             <Container maxWidth="sm">
@@ -92,13 +92,13 @@ function Status500() {
                 >
                   Refresh view
                 </LoadingButton>
-                <Button href="/overview" variant="contained" sx={{ ml: 1 }}>
+                <Button href="/" variant="contained" sx={{ ml: 1 }}>
                   Go back
                 </Button>
               </Box>
             </Container>
           </Grid>
-          <Hidden mdDown>
+          {/* <Hidden mdDown>
             <GridWrapper
               xs={12}
               md={6}
@@ -106,11 +106,11 @@ function Status500() {
               display="flex"
               justifyContent="center"
               item
-            >
-              <Container maxWidth="sm">
+            > */}
+          {/* <Container maxWidth="sm">
                 <Box textAlign="center">
                   <TypographyPrimary variant="h1" sx={{ my: 2 }}>
-                    Tokyo Free White React Admin Dashboard
+                    React Admin Dashboard
                   </TypographyPrimary>
                   <TypographySecondary
                     variant="h4"
@@ -127,8 +127,8 @@ function Status500() {
                 </Box>
               </Container>
             </GridWrapper>
-          </Hidden>
-        </Grid>
+          </Hidden> */}
+        </Grid> 
       </MainContent>
     </>
   );

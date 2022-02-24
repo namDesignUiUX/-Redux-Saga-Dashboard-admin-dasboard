@@ -2,6 +2,7 @@ import { combineReducers } from '@reduxjs/toolkit';
 import { all } from "redux-saga/effects";
 import * as auth from "../../app/modules/auth";
 import * as productReducer from '../../app/modules/products';
+import { sagaProduct } from '../../app/modules/products';
 // TODO cofig store redux
 
 // const persistConfig = {
@@ -24,5 +25,6 @@ export default rootReducer;
 export function* rootSaga() {
     yield all([
         auth.saga(),
+        sagaProduct()
     ])
 }

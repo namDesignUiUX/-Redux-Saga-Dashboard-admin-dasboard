@@ -1,33 +1,45 @@
+import { PayloadAction } from "@reduxjs/toolkit";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/es/storage";
-import { ActionWithPayload, IProduct } from "./ProductModel";
-
-
-
-const initialStateProduct: IProduct[] = [];
-
+import { fork, put, take } from "redux-saga/effects";
+import { Food } from "../../../_start/partials/content/Table/interface";
+import { actionTypes } from "../auth";
+import { ActionWithPayload } from "./ProductModel";
+// initial State Product
+const initialStateProduct: IProductPayload = {
+};
 export const actionTypesProduct = {
     GetProducts: "[GetProducts] Action",
+    SetProducts: "[SetProducts Products] Action",
 }
-export const acitonProduct = {
-    GetProducts: (payload: IProduct[]) => ({
-        type: actionTypesProduct.GetProducts,
-    })
+export const actionFood = {
+    getProducts: (foods: Food[]) => ({ type: actionTypes.GetProducts, payload: { foods } }),
+    setProducts: (foods?: Food[]) => ({
+        type: actionTypes.SetProducts,
+        payload: { foods },
+    }),
 }
 export interface IProductPayload {
-    product?: IProduct;
+    foods?: Food[];
     loading?: boolean;
 }
 export const reducer = persistReducer({
     key: "v100-product",
     storage: storage,
-    blacklist: ["products"]
-}, (state: IProduct[] = initialStateProduct, action: ActionWithPayload<IProductPayload>) => {
+    whitelist: ["products"]
+}, (state: IProductPayload = initialStateProduct, action: ActionWithPayload<IProductPayload>) => {
     switch (action.type) {
-        case actionTypesProduct.GetProducts: {
+        case actionTypes.GetProducts: {
             return {
                 ...state,
                 loading: true,
+            }
+        }
+        case actionTypesProduct.SetProducts: {
+            return {
+                ...state,
+                products: action.payload,
+                loading: false,
             }
         }
 
@@ -36,12 +48,16 @@ export const reducer = persistReducer({
     }
 });
 export function* sagaProduct() {
+    while (true) {
+        const action: PayloadAction<IProductPayload> = yield take(actionTypes.GetProducts);
+        yield fork(setProduct, action.payload)
+    }
+
+}
+function* setProduct(payload: IProductPayload) {
+    const foods = payload.foods;
+    yield put(actionFood.setProducts(foods));
 
 }
 
 
-// payload anbd interface to
-export interface PayloadActionProduct {
-
-
-}

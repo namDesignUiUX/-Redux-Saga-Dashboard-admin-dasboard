@@ -1,7 +1,7 @@
 import React from "react";
 
-const Chart = () => {
-  return <div>index</div>;
+export const index = () => {
+  return <React.Fragment>  </React.Fragment>
 };
 
-export default Chart;
+export default index;

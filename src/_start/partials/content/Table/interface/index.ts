@@ -1,4 +1,4 @@
-export type FoodStatus = 'Open' | 'Close';
+export type FoodStatus = "Open" | "Close";
 export interface category {
   id: string;
   name: string;
@@ -10,7 +10,7 @@ export interface Food {
   price: string;
   description: string;
   image: string;
-  category: category[];
+  category: string;
 }
 export interface FoodPost {
   id: string;

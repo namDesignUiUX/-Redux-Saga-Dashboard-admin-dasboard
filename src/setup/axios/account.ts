@@ -13,10 +13,7 @@ class AccountAuth {
         const accounts: Promise<UserModel[]> = await axios.get(`${API_URL.GET_LIST_USER}`).then(res => res.data).catch((err) => { console.log(err); return []; });
         return accounts;
     }
-    async getProducts(): Promise<IProduct[]> {
-        const products: IProduct[] = await axios.get(`${API_URL.GET_PRODUCTS}`).then(res => res.data).catch((err) => { console.log(err); return []; });
-        return products;
-    }
+   
     async getCategory(): Promise<category[]> {
         const categories: category[] = await axios.get(`${API_URL.GET_LIST_CATEGORY}`).then(res => res.data).catch((err) => { console.log(err); return []; });
         return categories;

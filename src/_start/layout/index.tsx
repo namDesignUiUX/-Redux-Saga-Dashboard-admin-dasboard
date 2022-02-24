@@ -98,7 +98,7 @@ function Status500() {
               </Box>
             </Container>
           </Grid>
-          <Hidden mdDown>
+          {/* <Hidden mdDown>
             <GridWrapper
               xs={12}
               md={6}
@@ -110,7 +110,7 @@ function Status500() {
               <Container maxWidth="sm">
                 <Box textAlign="center">
                   <TypographyPrimary variant="h1" sx={{ my: 2 }}>
-                    Tokyo Free White React Admin Dashboard
+                    React Admin Dashboard
                   </TypographyPrimary>
                   <TypographySecondary
                     variant="h4"
@@ -127,7 +127,7 @@ function Status500() {
                 </Box>
               </Container>
             </GridWrapper>
-          </Hidden>
+          </Hidden> */}
         </Grid>
       </MainContent>
     </>

@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 import {
   Avatar,
@@ -61,6 +61,7 @@ const UserBoxDescription = styled(Typography)(
 );
 
 function HeaderUserbox() {
+  const nextPage = useNavigate();
   const user = {
     name: "Catherine Pike",
     avatar: "/static/images/avatars/1.jpg",
@@ -146,6 +147,7 @@ function HeaderUserbox() {
               e.preventDefault();
               handleClose();
               dispatch(auth.actions.logout());
+              window.location.assign("/");
             }}
           >
             <LockOpenTwoToneIcon sx={{ mr: 1 }} />

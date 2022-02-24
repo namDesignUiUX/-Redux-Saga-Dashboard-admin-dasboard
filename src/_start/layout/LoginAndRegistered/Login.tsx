@@ -36,7 +36,7 @@ function Login() {
           const user: UserModel = res;
           dispatch(auth.actions.login(user));
           setIsDisabledButton(false);
-          nextPage("/dashboards/chart");
+          window.location.href = "/";
         })
         .catch((err) => {
           setIsDisabledButton(false);

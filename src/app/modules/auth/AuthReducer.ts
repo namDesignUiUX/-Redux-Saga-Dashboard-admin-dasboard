@@ -3,7 +3,7 @@ import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { cancel, fork, put, take } from "redux-saga/effects";
 import { accountDeffault } from "../../../setup/axios/account";
-import { actionTypesProduct } from "../products/ProductReducer";
+import { actionFood, actionTypesProduct } from "../products/ProductReducer";
 import { UserModel } from "./AuthModel";
 export interface ActionWithPayload<T> extends Action {
     payload?: T;
@@ -58,7 +58,7 @@ export const reducer = persistReducer(
     }
 );
 
-export const actions = {
+const actionsAuth = {
     login: (user: UserModel) => ({ type: actionTypes.Login, payload: { user } }),
     loginSuccess: (user?: UserModel) => ({
         type: actionTypes.LoginSuccess,
@@ -66,9 +66,11 @@ export const actions = {
     }),
     loginFailure: () => ({ type: actionTypes.LoginFailed }),
     logout: () => ({ type: actionTypes.LoginFailed })
+}
+export const actions = { ...actionsAuth, ...actionFood };
 
 
-};
+
 export function* saga() {
     yield watchingLoginFlow()
 }
@@ -80,7 +82,7 @@ function* watchingLoginFlow() {
 }
 function* handleLogin(payload: LoginPayload) {
     const { user } = payload;
-    if (user == accountDeffault) {
+    if (user === accountDeffault) {
         console.log("Login false");
         yield put(actions.loginFailure());
         cancel();

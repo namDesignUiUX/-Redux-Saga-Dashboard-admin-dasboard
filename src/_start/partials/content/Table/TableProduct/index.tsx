@@ -42,6 +42,7 @@ interface Filters {
   status?: FoodStatus;
 }
 const getStatusLabel = (OrderFoodStatus: FoodStatus): JSX.Element => {
+  console.log(OrderFoodStatus);
   const map = {
     Close: {
       text: "Close",
