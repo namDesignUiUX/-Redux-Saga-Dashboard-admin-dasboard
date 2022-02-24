@@ -8,7 +8,7 @@ import ThemeProviderWrapper from "../_start/layout/theme/ThemeProvider";
 import { auth, dashboardsRoutes, notAuth } from "./routes";
 
 const App = () => {
-  const { user, loading, _persist } = useAppSelector(({ auth }) => auth);
+  const { user, } = useAppSelector(({ auth }) => auth);
   const account = React.useState(user);
   const content = useRoutes(
     account[0]?.role === "role 1" || account[0] !== undefined

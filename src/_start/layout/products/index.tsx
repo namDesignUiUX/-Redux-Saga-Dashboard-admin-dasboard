@@ -1,10 +1,7 @@
 import { Container, Grid } from "@mui/material";
 import React from "react";
-import { useAppSelector } from "../../../setup/redux/hooks";
-import * as Table from "../../partials/content/Table";
-import { FoodStatus, Food } from "../../partials/content/Table";
+import { Food } from "../../partials/content/Table";
 import TableView from "../../partials/content/Table/TableProduct";
-import { subDays } from "date-fns";
 
 export const Products = (props: IProps) => {
   return (

@@ -1,7 +1,7 @@
-import { useRef, useState } from "react";
-
-import { NavLink, useNavigate } from "react-router-dom";
-
+import AccountBoxTwoToneIcon from "@mui/icons-material/AccountBoxTwoTone";
+import AccountTreeTwoToneIcon from "@mui/icons-material/AccountTreeTwoTone";
+import ExpandMoreTwoToneIcon from "@mui/icons-material/ExpandMoreTwoTone";
+import LockOpenTwoToneIcon from "@mui/icons-material/LockOpenTwoTone";
 import {
   Avatar,
   Box,
@@ -13,17 +13,16 @@ import {
   ListItem,
   ListItemText,
   Popover,
-  Typography,
+  Typography
 } from "@mui/material";
-
-import InboxTwoToneIcon from "@mui/icons-material/InboxTwoTone";
 import { styled } from "@mui/material/styles";
-import ExpandMoreTwoToneIcon from "@mui/icons-material/ExpandMoreTwoTone";
-import AccountBoxTwoToneIcon from "@mui/icons-material/AccountBoxTwoTone";
-import LockOpenTwoToneIcon from "@mui/icons-material/LockOpenTwoTone";
-import AccountTreeTwoToneIcon from "@mui/icons-material/AccountTreeTwoTone";
-import { useAppDispatch } from "../../../../../setup/redux/hooks";
+import { useRef, useState } from "react";
+import { NavLink } from "react-router-dom";
 import * as auth from "../../../../../app/modules/auth";
+import { useAppDispatch } from "../../../../../setup/redux/hooks";
+
+
+
 
 const UserBoxButton = styled(Button)(
   ({ theme }) => `
@@ -61,7 +60,6 @@ const UserBoxDescription = styled(Typography)(
 );
 
 function HeaderUserbox() {
-  const nextPage = useNavigate();
   const user = {
     name: "Catherine Pike",
     avatar: "/static/images/avatars/1.jpg",

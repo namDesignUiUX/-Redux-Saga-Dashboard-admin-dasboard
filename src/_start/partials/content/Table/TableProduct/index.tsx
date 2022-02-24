@@ -1,38 +1,19 @@
-import { FC, ChangeEvent, useState, ReactNode } from "react";
-import { format } from "date-fns";
-import PropTypes from "prop-types";
-import {
-  Tooltip,
-  Divider,
-  Box,
-  FormControl,
-  InputLabel,
-  Card,
-  Checkbox,
-  IconButton,
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TablePagination,
-  TableRow,
-  TableContainer,
-  Select,
-  MenuItem,
-  Typography,
-  useTheme,
-  CardHeader,
-  SelectChangeEvent,
-  CardMedia,
-  Avatar,
-} from "@mui/material";
-
-import Label from "../../../../layout/Label";
-import { Food, FoodStatus, category } from "../interface";
-import EditTwoToneIcon from "@mui/icons-material/EditTwoTone";
 import DeleteTwoToneIcon from "@mui/icons-material/DeleteTwoTone";
+import EditTwoToneIcon from "@mui/icons-material/EditTwoTone";
+import {
+  Avatar, Box, Card, CardHeader, Checkbox, Divider, FormControl, IconButton, InputLabel, MenuItem, Select, SelectChangeEvent, Table,
+  TableBody,
+  TableCell, TableContainer, TableHead,
+  TablePagination,
+  TableRow, Tooltip, Typography,
+  useTheme
+} from "@mui/material";
+import PropTypes from "prop-types";
+import { ChangeEvent, FC, ReactNode, useState } from "react";
+import Label from "../../../../layout/Label";
 import BulkActions from "../../../content/Transactions/BulkActions";
-import { styled } from "@mui/system";
+import { Food, FoodStatus } from "../interface";
+
 
 interface RecentOrdersTableProps {
   className?: string;

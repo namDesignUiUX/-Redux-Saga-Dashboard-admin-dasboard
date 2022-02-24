@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { UserModel } from '../../app/modules/auth/AuthModel';
-import { IProduct } from '../../app/modules/products';
 import { API_URL } from '../../env';
 import { category } from '../../_start/partials/content/Table';
 class AccountAuth {

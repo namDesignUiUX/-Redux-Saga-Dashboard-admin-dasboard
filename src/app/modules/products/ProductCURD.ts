@@ -1,5 +1,4 @@
 import axios from "axios";
-import { IProductPayload } from "./";
 import { API_URL } from "../../../env";
 import { Food } from "../../../_start/partials/content/Table/interface";
 export async function getProducts() {

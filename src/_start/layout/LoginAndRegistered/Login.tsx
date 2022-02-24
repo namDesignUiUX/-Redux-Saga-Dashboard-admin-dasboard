@@ -12,7 +12,6 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
-import { useNavigate } from "react-router-dom";
 import * as auth from "../../../app/modules/auth";
 import { UserModel } from "../../../app/modules/auth";
 import { login } from "../../../app/modules/auth/AuthCURD";
@@ -21,7 +20,6 @@ import { useAppDispatch } from "../../../setup/redux/hooks";
 const theme = createTheme();
 function Login() {
   const dispatch = useAppDispatch();
-  const nextPage = useNavigate();
   const [isdisabledButton, setIsDisabledButton] = React.useState(false);
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();

@@ -4,18 +4,16 @@ import {
   Box,
   Button,
   Container,
-  Grid,
-  Hidden,
-  Typography,
+  Grid, Typography
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { useState } from "react";
 
-const GridWrapper = styled(Grid)(
-  ({ theme }) => `
-    background: #ddd;
-`
-);
+// const GridWrapper = styled(Grid)(
+//   ({ theme }) => `
+//     background: #ddd;
+// `
+// );
 
 const MainContent = styled(Box)(
   () => `
@@ -29,17 +27,17 @@ const MainContent = styled(Box)(
 `
 );
 
-const TypographyPrimary = styled(Typography)(
-  ({ theme }) => `
-      color: #fff;
-`
-);
+// const TypographyPrimary = styled(Typography)(
+//   ({ theme }) => `
+//       color: #fff;
+// `
+// );
 
-const TypographySecondary = styled(Typography)(
-  ({ theme }) => `
-      color: #fff;
-`
-);
+// const TypographySecondary = styled(Typography)(
+//   ({ theme }) => `
+//       color: #fff;
+// `
+// );
 
 function Status500() {
   const [pending, setPending] = useState(false);

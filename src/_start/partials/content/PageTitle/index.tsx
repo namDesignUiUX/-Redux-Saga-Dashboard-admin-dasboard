@@ -1,17 +1,14 @@
 import AddTwoToneIcon from "@mui/icons-material/AddTwoTone";
-import PropTypes from "prop-types";
-import { FC } from "react";
 import SearchTwoToneIcon from "@mui/icons-material/SearchTwoTone";
 import {
-  Box,
   Button,
-  FormControl,
-  Typography,
-  Grid,
+  FormControl, Grid,
   InputAdornment,
   OutlinedInput,
-  styled,
+  styled, Typography
 } from "@mui/material";
+import PropTypes from "prop-types";
+import { FC } from "react";
 interface PageTitleProps {
   heading?: string;
   subHeading?: string;
@@ -21,17 +18,17 @@ interface PageTitleProps {
   showAdd?: boolean;
 }
 
-const MainContent = styled(Box)(
-  ({ theme }) => `
-    height: 100%;
-    display: flex;
-    flex: 1;
-    overflow: auto;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-`
-);
+// const MainContent = styled(Box)(
+//   ({ theme }) => `
+//     height: 100%;
+//     display: flex;
+//     flex: 1;
+//     overflow: auto;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+// `
+// );
 const OutlinedInputWrapper = styled(OutlinedInput)(
   ({ theme }) => `
     background-color: #fff;
