@@ -3,6 +3,7 @@ import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { cancel, fork, put, take } from "redux-saga/effects";
 import { accountDeffault } from "../../../setup/axios/account";
+import { actionMessage, actionTypesMessage } from "../messages";
 import { actionFood, actionTypesProduct } from "../products/ProductReducer";
 import { UserModel } from "./AuthModel";
 export interface ActionWithPayload<T> extends Action {
@@ -16,7 +17,7 @@ const actionTypesAuth = {
     LoginFailed: "[LoginFailed] Action",
 }
 // ActionTypes 
-export const actionTypes = { ...actionTypesAuth, ...actionTypesProduct };
+export const actionTypes = { ...actionTypesAuth, ...actionTypesProduct, ...actionTypesMessage };
 const initialAuthState: IAuthState = {
     user: undefined,
 };
@@ -67,9 +68,7 @@ const actionsAuth = {
     loginFailure: () => ({ type: actionTypes.LoginFailed }),
     logout: () => ({ type: actionTypes.LoginFailed })
 }
-export const actions = { ...actionsAuth, ...actionFood };
-
-
+export const actions = { ...actionsAuth, ...actionFood, ...actionMessage };
 
 export function* saga() {
     yield watchingLoginFlow()

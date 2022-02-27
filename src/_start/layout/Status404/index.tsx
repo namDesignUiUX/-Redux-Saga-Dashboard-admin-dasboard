@@ -7,11 +7,10 @@ import {
   Button,
   FormControl,
   OutlinedInput,
-  InputAdornment
-} from '@mui/material';
-import SearchTwoToneIcon from '@mui/icons-material/SearchTwoTone';
-import { styled } from '@mui/material/styles';
-
+  InputAdornment,
+} from "@mui/material";
+import SearchTwoToneIcon from "@mui/icons-material/SearchTwoTone";
+import { styled } from "@mui/material/styles";
 const MainContent = styled(Box)(
   ({ theme }) => `
     height: 100%;
@@ -20,7 +19,7 @@ const MainContent = styled(Box)(
     overflow: auto;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: center;z
 `
 );
 
@@ -37,7 +36,6 @@ const ButtonSearch = styled(Button)(
 );
 
 function Status404() {
-
   return (
     <>
       <MainContent>
@@ -53,11 +51,12 @@ function Status404() {
               fontWeight="normal"
               sx={{ mb: 4 }}
             >
-              It's on us, we moved the content to a different page. The search below should help!
+              It's on us, we moved the content to a different page. The search
+              below should help!
             </Typography>
           </Box>
           <Container maxWidth="sm">
-            <Card sx={{ textAlign: 'center', mt: 3, p: 4 }}>
+            <Card sx={{ textAlign: "center", mt: 3, p: 4 }}>
               <FormControl variant="outlined" fullWidth>
                 <OutlinedInputWrapper
                   type="text"

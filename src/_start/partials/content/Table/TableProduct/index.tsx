@@ -1,19 +1,36 @@
 import DeleteTwoToneIcon from "@mui/icons-material/DeleteTwoTone";
 import EditTwoToneIcon from "@mui/icons-material/EditTwoTone";
 import {
-  Avatar, Box, Card, CardHeader, Checkbox, Divider, FormControl, IconButton, InputLabel, MenuItem, Select, SelectChangeEvent, Table,
+  Avatar,
+  Box,
+  Card,
+  CardHeader,
+  Checkbox,
+  Divider,
+  FormControl,
+  IconButton,
+  InputLabel,
+  MenuItem,
+  Select,
+  SelectChangeEvent,
+  Table,
   TableBody,
-  TableCell, TableContainer, TableHead,
+  TableCell,
+  TableContainer,
+  TableHead,
   TablePagination,
-  TableRow, Tooltip, Typography,
-  useTheme
+  TableRow,
+  Tooltip,
+  Typography,
+  useTheme,
 } from "@mui/material";
 import PropTypes from "prop-types";
 import { ChangeEvent, FC, ReactNode, useState } from "react";
+import { actions } from "../../../../../app/modules/auth";
+import { useAppDispatch } from "../../../../../setup/redux/hooks";
 import Label from "../../../../layout/Label";
 import BulkActions from "../../../content/Transactions/BulkActions";
 import { Food, FoodStatus } from "../interface";
-
 
 interface RecentOrdersTableProps {
   className?: string;
@@ -23,7 +40,6 @@ interface Filters {
   status?: FoodStatus;
 }
 const getStatusLabel = (OrderFoodStatus: FoodStatus): JSX.Element => {
-  console.log(OrderFoodStatus);
   const map = {
     Close: {
       text: "Close",
@@ -55,6 +71,7 @@ const applyPagination = (
   return foodInfos.slice(page * limit, page * limit + limit);
 };
 const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ foodInfos }) => {
+  const dispatch = useAppDispatch();
   const [selectedfoodInfos, setSelectedfoodInfos] = useState<string[]>([]);
   const selectedBulkActions = selectedfoodInfos.length > 0;
   const [page, setPage] = useState<number>(0);
@@ -264,7 +281,13 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ foodInfos }) => {
                         <EditTwoToneIcon fontSize="small" />
                       </IconButton>
                     </Tooltip>
-                    <Tooltip title="Delete Order" arrow>
+                    <Tooltip
+                      title="Delete Order"
+                      onClick={(e) => {
+                        dispatch(actions.RunTime());
+                      }}
+                      arrow
+                    >
                       <IconButton
                         sx={{
                           "&:hover": { background: theme.colors.error.lighter },
@@ -297,13 +320,10 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ foodInfos }) => {
     </Card>
   );
 };
-
 RecentOrdersTable.propTypes = {
   foodInfos: PropTypes.array.isRequired,
 };
-
 RecentOrdersTable.defaultProps = {
   foodInfos: [],
 };
-
 export default RecentOrdersTable;

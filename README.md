@@ -4,7 +4,16 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### `npm start ____ Build run demo vercal by Nam Nam`
+### `npm start \_\_\_\_ Build run demo vercal by Nam Nam
+
+"scripts": {
+"start": "react-scripts start",
+"build": "CI=false && react-scripts build",
+"test": "react-scripts test",
+"eject": "react-scripts eject"
+},
+
+`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.

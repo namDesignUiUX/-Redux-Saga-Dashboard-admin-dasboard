@@ -29,6 +29,7 @@ function PageProducts() {
           showSearch={true}
           showAdd={true}
         />
+       
       </PageTitleWrapper>
       <Products foods={foods} />
     </React.Fragment>

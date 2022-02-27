@@ -6470,6 +6470,15 @@ jss-plugin-rule-value-function@^10.5.1, jss-plugin-rule-value-function@^10.8.2:
     jss "10.9.0"
     tiny-warning "^1.0.2"
 
+jss-plugin-template@^10.9.0:
+  version "10.9.0"
+  resolved "https://registry.yarnpkg.com/jss-plugin-template/-/jss-plugin-template-10.9.0.tgz#27547e093e04b9dc9e900f35146e874bb196f575"
+  integrity sha512-lxThUvdt0drCi7xhuJWxADWTgLLy1IWCeFO5k+dtba900xJsNg0IGZplpP9w9UpaJsYS3WUwWMXw8Sxn1dobfQ==
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+    jss "10.9.0"
+    tiny-warning "^1.0.2"
+
 jss-plugin-vendor-prefixer@^10.5.1, jss-plugin-vendor-prefixer@^10.8.2:
   version "10.9.0"
   resolved "https://registry.yarnpkg.com/jss-plugin-vendor-prefixer/-/jss-plugin-vendor-prefixer-10.9.0.tgz#aa9df98abfb3f75f7ed59a3ec50a5452461a206a"
@@ -6479,7 +6488,7 @@ jss-plugin-vendor-prefixer@^10.5.1, jss-plugin-vendor-prefixer@^10.8.2:
     css-vendor "^2.0.8"
     jss "10.9.0"
 
-jss@10.9.0, jss@^10.5.1, jss@^10.8.2:
+jss@10.9.0, jss@^10.5.1, jss@^10.8.2, jss@^10.9.0:
   version "10.9.0"
   resolved "https://registry.yarnpkg.com/jss/-/jss-10.9.0.tgz#7583ee2cdc904a83c872ba695d1baab4b59c141b"
   integrity sha512-YpzpreB6kUunQBbrlArlsMpXYyndt9JATbt95tajx0t4MTJJcCJdd4hdNpHmOIDiUJrF/oX5wtVFrS3uofWfGw==

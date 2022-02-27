@@ -45,8 +45,8 @@ export const notAuth: RouteObject = {
 export const auth: RouteObject = {
   path: "/",
   children: [
-    { path: "/login", element: <Navigate to="/dashboards/chart" replace /> },
-    { path: "", element: <Navigate to="/dashboards/chart" replace /> },
+    { path: "/login", element: <Navigate to="/dashboards/products" replace /> },
+    { path: "", element: <Navigate to="/dashboards/products" replace /> },
     {
       path: "status",
       children: [
