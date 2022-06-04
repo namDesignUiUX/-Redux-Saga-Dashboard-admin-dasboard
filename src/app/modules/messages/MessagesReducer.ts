@@ -79,7 +79,7 @@ export const actionMessage = {
 }
 
 export function* sagaMessage() {
-    yield takeLatest(actionTypes.RunTime, function* () { 
+    yield takeLatest(actionTypes.RunTime, function* () {
         console.log("Open???");
     })
 }
